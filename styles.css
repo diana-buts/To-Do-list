@@ -16,6 +16,9 @@
     font-family: var(--text-font);
     margin: auto;
 }
+body {
+    background-color: rgba(255, 229, 197, 0.05);
+}
 
 .container {
     max-width: 1200px;
@@ -57,7 +60,7 @@ h2, h3 {
     margin-bottom: 30px;
 }
 
-.daily__title, .weekly__title {
+.daily__title, .weekly__title, .notes__title {
     font-size: 19px;
     margin-bottom: 10px;
 }
@@ -93,14 +96,14 @@ h2, h3 {
     margin-bottom: 15px;
 }
 
-.priorities__input, .daily__card .card-input {
+.priorities__input, .daily__card .card-input, #notes__input {
     width: 74%;
     border-color: rgba(var(--title-color), 0,5);
     border-radius: 5px;
     height: 30px;
 }
 
-.priorities__button, .daily__card .card-button {
+.priorities__button, .daily__card .card-button, #notes__button {
     width: 24%;
     margin-left: -5px;
     border-color: rgba(var(--title-color), 0,5);
@@ -117,7 +120,7 @@ h2, h3 {
     margin-bottom: 10px;
 }
 
-.priorities__task-list button, .card__task-list button {
+.priorities__task-list button, .card__task-list button, #notes__list button {
     width: 20px;
     float: right;
     margin-right: 10px;
@@ -147,4 +150,56 @@ h2, h3 {
     opacity: 0.5;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+.weekly__choice{
+    width: 120px;
+    border-color: rgba(var(--title-color), 0,5);
+    border-radius: 5px;
+    height: 25px;
+}
+
+.weekly__month-choice {
+    font-weight: 400;
+    color: var(--title-color);
+    margin-top: 5px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.weekly__cards {
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 50px;
+}
+
+.weekly__card {
+    min-height: 130px;
+}
+
+#notes__list div {
+    background-color: rgba(251, 236, 221, 0.5);
+    margin-top: 10px;
+    font-size: 13px;
+    padding: 10px;
+}
+
+.notes__container {
+    margin-left: 5px;
+    margin-bottom: 50px;
+}
+
+#notes__list button {
+    min-width: 60px;
+}
+
+#notes__input {
+    border-radius: 0px;
+    width: 100%;
+    height: 100px;
+}
+
+#notes__button {
+    width: 100%;
+    margin-left: 1px;
+    margin-top: -5px;
 }

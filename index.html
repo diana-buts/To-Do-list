@@ -107,41 +107,56 @@
             <div class="container">
                 <h2 class="weekly__title">Weekly</h2><hr class="line">
                 <label class="weekly__text" for="months">Choose a month:</label>
-                <select name="months" id="months">
-                    <option value="january">January</option>
-                    <option value="february">February</option>
-                    <option value="march">March</option>
-                    <option value="april">April</option>
-                    <option value="may">May</option>
-                    <option value="june">June</option>
-                    <option value="july">July</option>
-                    <option value="august">August</option>
-                    <option value="september">September</option>
-                    <option value="october">October</option>
-                    <option value="november">November</option>
-                    <option value="december">December</option>
+                <select class="weekly__choice" name="months" id="months">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
                 </select>
-                <div class="weekly__cards">
-                    <article class="weekly__card card">
+                <p class="weekly__month-choice"></p><hr class="underline">
+                <div class="weekly__cards daily__cards">
+                    <article class="weekly__card daily__card card">
                         <h3 class="card-title">Week 1</h3>
                         <input class="card-input" type="text" placeholder="Your task...">
                         <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
                     </article>
-                    <article class="weekly__card card">
+                    <article class="weekly__card daily__card card">
                         <h3 class="card-title">Week 2</h3>
                         <input class="card-input" type="text" placeholder="Your task...">
                         <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
                     </article>
-                    <article class="weekly__card card">
+                    <article class="weekly__card daily__card card">
                         <h3 class="card-title">Week 3</h3>
                         <input class="card-input" type="text" placeholder="Your task...">
                         <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
                     </article>
-                    <article class="weekly__card card">
+                    <article class="weekly__card daily__card card">
                         <h3 class="card-title">Week 4</h3>
                         <input class="card-input" type="text" placeholder="Your task...">
                         <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
                     </article>
+                </div>
+            </div>
+        </section>
+        <section class="notes__section">
+            <div class="container">
+                <h2 class="notes__title">Notes</h2><hr class="line">
+                <div class="notes__container container">
+                    <textarea id="notes__input" placeholder="Write your note here..."></textarea><br>
+                    <button id="notes__button">Add Note</button>
+                    <div id="notes__list" class="notes__list"></div>
                 </div>
             </div>
         </section>

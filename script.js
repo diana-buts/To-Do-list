@@ -18,6 +18,28 @@ cardDates.forEach((cardDate, index) => {
     });
 });
 
+const weeklyChoice = document.querySelectorAll('.weekly__choice');
+const weeklyParagraphChoice = document.querySelectorAll('.weekly__month-choice');
+
+function addMonth() {
+    weeklyChoice.forEach((choice, index) => {
+        const savedMonth = localStorage.getItem(`selectedValue_${index}`);
+        if (savedMonth) {
+            choice.value = savedMonth;
+            weeklyParagraphChoice[index].textContent = savedMonth;
+        }
+
+        choice.addEventListener('change', () => {
+            const selectedMonth = choice.value;
+            weeklyParagraphChoice[index].textContent = selectedMonth;
+
+            localStorage.setItem(`selectedValue_${index}`, selectedMonth);
+        });
+    });
+}
+
+addMonth();
+
 
 const inputValues = document.querySelector(".priorities__input");
 const addButton = document.querySelector(".priorities__button");
@@ -174,3 +196,70 @@ addButtons.forEach((button, index) => {
         taskList.appendChild(listItem);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const noteInput = document.getElementById('notes__input');
+    const addNoteButton = document.getElementById('notes__button');
+    const notesList = document.getElementById('notes__list');
+  
+    addNoteButton.addEventListener('click', addNote);
+  
+    function addNote() {
+      const noteText = noteInput.value.trim();
+  
+      if (noteText !== '') {
+        const noteElement = document.createElement('div'); // Заміна <p> на <div>
+        noteElement.classList.add('note-item');
+        noteElement.textContent = '📔 ' + noteText;
+  
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.classList.add('delete-button');
+        deleteButton.addEventListener('click', () => {
+          noteElement.remove();
+          saveNotes();
+        });
+  
+        noteElement.appendChild(deleteButton);
+        notesList.appendChild(noteElement);
+        noteInput.value = '';
+  
+        saveNotes();
+      } else {
+        alert('Please enter a note before adding!');
+      }
+    }
+  
+    function saveNotes() {
+      const notes = [];
+      document.querySelectorAll('.note-item').forEach(note => {
+        notes.push(note.textContent);
+      });
+      localStorage.setItem('notes', JSON.stringify(notes));
+    }
+  
+    function loadNotes() {
+      const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+      savedNotes.forEach(savedNote => {
+        const noteElement = document.createElement('div'); // Заміна <p> на <div>
+        noteElement.classList.add('note-item');
+        noteElement.textContent = savedNote;
+  
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.classList.add('delete-button');
+        deleteButton.addEventListener('click', () => {
+          noteElement.remove();
+          saveNotes();
+        });
+  
+        noteElement.appendChild(deleteButton);
+        notesList.appendChild(noteElement);
+      });
+    }
+  
+    loadNotes();
+  });
+  
+  
