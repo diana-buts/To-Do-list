@@ -4,10 +4,148 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="shortcut icon" href="https://placekitten.com/96/139" type="image/x-icon">
+    <title>To-Do List</title>
+    <link rel="shortcut icon" href="img/page-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script src="https://unpkg.com/html-data-include@3.3.3/html-data-include.js"></script>
+    <header id="header">
+        <div class="header__empty-container"></div>
+        <div class="header__container container">
+            <img class="header__image" src="img/page-icon.png" alt="Page icon">
+            <h1 class="header__title">To-Do List</h1>
+            <p class="header__paragraph">“Start where you are. Use what you have. Do what you can.” ― Arthur Ashe</p>
+        </div>
+    </header>
+    <main id="main">
+        <section class="daily__section">
+            <div class="container">
+                <h2 class="daily__title">Daily</h2><hr class="line">
+            </div>
+            <div class="daily__container container">
+                <div class="priorities__container">
+                    <h3 class="priorities__title">//priorities</h3>
+                    <input class="priorities__input" type="text" placeholder="Your task...">
+                    <button class="priorities__button">Add</button>
+                    <p class="priorities__task-list"></p>
+                </div>
+                <div class="daily__cards">
+                    <article class="daily__card card">
+                        <h3 class="card-title">//monday</h3>
+                        <div class="card__date">
+                            <input class="card__date-input" type="date">
+                            <p class="card__date-paragraph"></p><hr class="underline">
+                        </div>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
+                    </article>
+                    <article class="daily__card card">
+                        <h3 class="card-title">//tuesday</h3>
+                        <div class="card__date">
+                            <input class="card__date-input" type="date">
+                            <p class="card__date-paragraph"></p><hr class="underline">
+                        </div>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
+                    </article>
+                    <article class="daily__card card">
+                        <h3 class="card-title">//wednesday</h3>
+                        <div class="card__date">
+                            <input class="card__date-input" type="date">
+                            <p class="card__date-paragraph"></p><hr class="underline">
+                        </div>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
+                    </article>
+                    <article class="daily__card card">
+                        <h3 class="card-title">//thursday</h3>
+                        <div class="card__date">
+                            <input class="card__date-input" type="date">
+                            <p class="card__date-paragraph"></p><hr class="underline">
+                        </div>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
+                    </article>
+                    <article class="daily__card card">
+                        <h3 class="card-title">//friday</h3>
+                        <div class="card__date">
+                            <input class="card__date-input" type="date">
+                            <p class="card__date-paragraph"></p><hr class="underline">
+                        </div>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
+                    </article>
+                    <article class="daily__card card">
+                        <h3 class="card-title">//saturday</h3>
+                        <div class="card__date">
+                            <input class="card__date-input" type="date">
+                            <p class="card__date-paragraph"></p><hr class="underline">
+                        </div>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
+                    </article>
+                    <article class="daily__card card">
+                        <h3 class="card-title">//sunday</h3>
+                        <div class="card__date">
+                            <input class="card__date-input" type="date">
+                            <p class="card__date-paragraph"></p><hr class="underline">
+                        </div>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                        <p class="card__task-list"></p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="weekly__section">
+            <div class="container">
+                <h2 class="weekly__title">Weekly</h2><hr class="line">
+                <label class="weekly__text" for="months">Choose a month:</label>
+                <select name="months" id="months">
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>
+                <div class="weekly__cards">
+                    <article class="weekly__card card">
+                        <h3 class="card-title">Week 1</h3>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                    </article>
+                    <article class="weekly__card card">
+                        <h3 class="card-title">Week 2</h3>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                    </article>
+                    <article class="weekly__card card">
+                        <h3 class="card-title">Week 3</h3>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                    </article>
+                    <article class="weekly__card card">
+                        <h3 class="card-title">Week 4</h3>
+                        <input class="card-input" type="text" placeholder="Your task...">
+                        <button class="card-button">Add</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
