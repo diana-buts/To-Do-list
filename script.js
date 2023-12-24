@@ -209,9 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const noteText = noteInput.value.trim();
   
       if (noteText !== '') {
-        const noteElement = document.createElement('div'); // Заміна <p> на <div>
+        const noteElement = document.createElement('div');
         noteElement.classList.add('note-item');
-        noteElement.textContent = '📔 ' + noteText;
+  
+        const noteContent = document.createElement('span'); // Create a span for note text
+        noteContent.textContent = '📔 ' + noteText;
+        noteElement.appendChild(noteContent); // Append text content to noteElement
   
         const deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
@@ -221,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
           saveNotes();
         });
   
-        noteElement.appendChild(deleteButton);
+        noteElement.appendChild(deleteButton); // Append delete button to noteElement
         notesList.appendChild(noteElement);
         noteInput.value = '';
   
@@ -233,8 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function saveNotes() {
       const notes = [];
-      document.querySelectorAll('.note-item').forEach(note => {
-        notes.push(note.textContent);
+      document.querySelectorAll('.note-item > span').forEach(noteContent => {
+        notes.push(noteContent.textContent.replace('📔 ', '')); // Save only note text without emoji
       });
       localStorage.setItem('notes', JSON.stringify(notes));
     }
@@ -242,9 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadNotes() {
       const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
       savedNotes.forEach(savedNote => {
-        const noteElement = document.createElement('div'); // Заміна <p> на <div>
+        const noteElement = document.createElement('div');
         noteElement.classList.add('note-item');
-        noteElement.textContent = savedNote;
+  
+        const noteContent = document.createElement('span');
+        noteContent.textContent = '📔 ' + savedNote;
+        noteElement.appendChild(noteContent);
   
         const deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
@@ -261,5 +267,4 @@ document.addEventListener('DOMContentLoaded', () => {
   
     loadNotes();
   });
-  
   
